@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>Test</title>
+</head>
+<body>
+
+<script>
+    console.log(parseCamelCase('camelCasingTest'));
+
+    console.log(autocomplete('ni', ['airplane','aiRport','apple','ball']));
+
+    console.log(three(times(five())));
+    console.log(four(plus(eight())));
+    console.log(eight(minus(two())));
+    console.log(six(dividedBy(three())));
+
+    function parseCamelCase(str) {
+        var regx = new RegExp('(?=[A-Z])', 'g');
+
+        return str.replace(regx, ' ');
+    }
+
+    function autocomplete(search, dictionary) {
+        var searchResult = [];
+
+        for (var i in dictionary) {
+            if (dictionary[i].toLowerCase().indexOf(search.toLowerCase()) != -1) {
+                searchResult.push(dictionary[i]);
+            }
+        }
+
+        return searchResult;
+    }
+
+    //numbers
+    function zero(x) {
+        return _init(x, 0);
+    }
+    function one(x)  {
+        return _init(x, 1);
+    }
+    function two(x)  {
+        return _init(x, 2);
+    }
+    function three(x)  {
+        return _init(x, 3);
+    }
+    function four(x)  {
+        return _init(x, 4);
+    }
+    function five(x) {
+        return _init(x, 5);
+    }
+    function six(x)  {
+        return _init(x, 6);
+    }
+    function seven(x)  {
+        return _init(x, 7);
+    }
+    function eight(x)  {
+        return _init(x, 8);
+    }
+    function nine(x)  {
+        return _init(x, 9);
+    }
+
+    //operations
+    function plus(x) {
+        return '+'+x;
+    }
+    function minus(x) {
+        return '-'+x;
+    }
+    function times(x) {
+        return '*'+x;
+    }
+    function dividedBy(x) {
+        return '/'+x;
+    }
+
+    //service methods
+    function _init(x, defaultVal) {
+        x = _executeMath(defaultVal + x) || defaultVal;
+
+        return x;
+    }
+    function _executeMath(fn) {
+        return new Function('return ' + fn)();
+    }
+
+</script>
+</body>
+</html>
