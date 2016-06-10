@@ -33,12 +33,15 @@ CREATE TABLE `employee` (
 -- ----------------------------
 -- Records of employee
 -- ----------------------------
-INSERT INTO `employee` VALUES ('1', '1', '1', 'Alex', '500');
-INSERT INTO `employee` VALUES ('2', '1', '1', 'Vova', '600');
-INSERT INTO `employee` VALUES ('3', '1', '1', 'Kolia', '700');
-INSERT INTO `employee` VALUES ('4', '2', '2', 'Vasia', '800');
-INSERT INTO `employee` VALUES ('5', '2', '2', 'Petia', '200');
-INSERT INTO `employee` VALUES ('6', '2', '2', 'Ivan', '100');
-INSERT INTO `employee` VALUES ('7', '3', '3', 'Andrey', '250');
-INSERT INTO `employee` VALUES ('8', '3', '3', 'Georgiy', '450');
-INSERT INTO `employee` VALUES ('9', '3', '3', 'Zurab', '650');
+INSERT INTO `employee` VALUES ('1', '1', '10', 'Alex', '500');
+INSERT INTO `employee` VALUES ('2', '1', '10', 'Vova', '600');
+INSERT INTO `employee` VALUES ('3', '1', '10', 'Kolia', '700');
+INSERT INTO `employee` VALUES ('4', '2', '11', 'Vasia', '800');
+INSERT INTO `employee` VALUES ('5', '2', '11', 'Petia', '200');
+INSERT INTO `employee` VALUES ('6', '2', '11', 'Ivan', '100');
+INSERT INTO `employee` VALUES ('7', '3', '12', 'Andrey', '250');
+INSERT INTO `employee` VALUES ('8', '3', '12', 'Georgiy', '450');
+INSERT INTO `employee` VALUES ('9', '3', '12', 'Zurab', '650');
+INSERT INTO `employee` VALUES ('10', '1', null, 'Director Dep1', '550');
+INSERT INTO `employee` VALUES ('11', '2', null, 'Director Dep2', '250');
+INSERT INTO `employee` VALUES ('12', '3', null, 'Director Dep3', '350');

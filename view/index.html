@@ -7,21 +7,41 @@
 <body>
 
 <script>
+    console.log('Test 2, parse camel case:');
     console.log(parseCamelCase('camelCasingTest'));
 
-    console.log(autocomplete('ni', ['airplane','aiRport','apple','ball']));
+    console.log('Test 3 autocomplete. Input "ai":');
+    console.log(autocomplete('ai', ['airplane','aiRport','apple','ball']));
 
+    console.log('Test 4 - Write a functions that will make basic math calculations');
+    console.log('to produce results like in the following example. Please, do not use "eval":');
     console.log(three(times(five())));
     console.log(four(plus(eight())));
     console.log(eight(minus(two())));
     console.log(six(dividedBy(three())));
 
+    /**
+     * Test 2
+     * Complete the solution so that the function will break up camel casing,
+     * using a space between words.
+     * @param str
+     * @returns {XML|void|string}
+     */
     function parseCamelCase(str) {
         var regx = new RegExp('(?=[A-Z])', 'g');
 
         return str.replace(regx, ' ');
     }
 
+    /**
+     * The autocomplete function will take in an input string and a dictionary array and return
+     * the values from the dictionary that start with the input string. If there are more than 5 matches,
+     * restrict your output to the first 5 results. If there are no matches, return an empty array.
+
+     * @param search
+     * @param dictionary
+     * @returns {Array}
+     */
     function autocomplete(search, dictionary) {
         var searchResult = [];
 
@@ -80,12 +100,26 @@
         return '/'+x;
     }
 
-    //service methods
+    /**
+     * Method "init" to prevent duplication of code
+     *
+     * @param x
+     * @param defaultVal
+     * @returns {*}
+     * @private
+     */
     function _init(x, defaultVal) {
         x = _executeMath(defaultVal + x) || defaultVal;
 
         return x;
     }
+
+    /**
+     * Execute, without using "eval"
+     * @param fn
+     * @returns {*}
+     * @private
+     */
     function _executeMath(fn) {
         return new Function('return ' + fn)();
     }

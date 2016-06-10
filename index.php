@@ -3,7 +3,13 @@
 class AkademosTest
 {
 
-    //1
+    /**
+     * Test 1
+     * Here we have a function that help us spam our hearty laughter.
+     *
+     * @param $number
+     * @return string
+     */
     public function spam($number)
     {
         $number = abs((int)$number);
@@ -15,12 +21,28 @@ class AkademosTest
         return $buffer;
     }
 
-    //2
+    /**
+     * Test 2
+     * Complete the solution so that the function will break up camel casing,
+     * using a space between words.
+     * 
+     * @param $string
+     * @return string
+     */
     public function solution($string)
     {
         return implode(' ', preg_split('/(?=[A-Z])/', $string));
     }
 
+    /**
+     * Test 4
+     * In elementary arithmetic a "carry" is a digit that is transferred from one column of digits
+     * to another column of more significant digits during a calculation algorithm.
+     *
+     * @param $numbers
+     * @param string $separator
+     * @return string
+     */
     public function solve($numbers, $separator = PHP_EOL)
     {
         $n = explode(' ', $numbers);
@@ -56,10 +78,17 @@ class AkademosTest
 
 $class = new AkademosTest();
 
+var_dump('Test 1');
 var_dump($class->spam(6));
-var_dump($class->solution('camelCasingTest'));
-//echo $class->solve('123 456 856 47693', '<br>');
-echo $class->solve('123 456 555 555 123 594', '<br>');
+echo '<hr>';
 
+var_dump('Test 2');
+var_dump($class->solution('camelCasingTest'));
+echo '<hr>';
+
+var_dump('Test 4');
+echo $class->solve('123 456 555 555 123 594', '<br>');
+//echo $class->solve('123 456 856 47693', '<br>');
+echo '<hr>';
 
 require_once('view/index.html');
