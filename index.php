@@ -74,21 +74,29 @@ class AkademosTest
         return implode($separator, $result);
     }
 
+    /**
+     * Set <hr> line
+     */
+    public function setLine()
+    {
+        echo '<hr>';
+    }
+
 }
 
 $class = new AkademosTest();
 
 var_dump('Test 1');
 var_dump($class->spam(6));
-echo '<hr>';
+$class->setLine();
 
 var_dump('Test 2');
 var_dump($class->solution('camelCasingTest'));
-echo '<hr>';
+$class->setLine();
 
 var_dump('Test 4');
 echo $class->solve('123 456 555 555 123 594', '<br>');
 //echo $class->solve('123 456 856 47693', '<br>');
-echo '<hr>';
+$class->setLine();
 
 require_once('view/index.html');
