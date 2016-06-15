@@ -47,4 +47,4 @@ e2.department_id as subDepartment,
 e2.`name` as subName
 FROM `employee` e1
 LEFT JOIN employee e2 ON e1.id = e2.chief_id
-HAVING subId IS NOT NULL AND department != subDepartment
+WHERE e2.id IS NOT NULL AND e1.department_id != e2.department_id
