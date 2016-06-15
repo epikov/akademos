@@ -55,10 +55,13 @@ class AkademosTest
         }, $n, array_keys($n));
 
         foreach (array_chunk($n, 2) as $val) {
-            $carrie = 0;
-            array_map(function($val1, $val2) use (&$carrie) {
-                if (($result = $val1 + $carrie + $val2) > 9) {
-                    $carrie++;
+            $carry = $memory = 0;
+            array_map(function($val1, $val2) use (&$carry, &$memory) {
+                if (($val1 + $memory + $val2) > 9) {
+                    $memory = 1;
+                    $carry++;
+                } else {
+                    $memory = 0;
                 }
             },
                 array_reverse(str_split($val[0])),
@@ -66,8 +69,8 @@ class AkademosTest
             );
 
             $result[] = sprintf(
-                '%s + %s have %s carrie operation',
-                $val[0], $val[1], ($carrie) ? $carrie : 'no'
+                '%s + %s have %s carry operation',
+                $val[0], $val[1], ($carry) ? $carry : 'no'
             );
         }
 
@@ -95,7 +98,7 @@ var_dump($class->solution('camelCasingTest'));
 $class->setLine();
 
 var_dump('Test 4');
-echo $class->solve('123 456 555 555 123 594', '<br>');
+echo $class->solve('123456789 111111111', '<br>');
 //echo $class->solve('123 456 856 47693', '<br>');
 $class->setLine();
 
