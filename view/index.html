@@ -58,72 +58,140 @@
 
     //numbers
     function zero(x) {
-        return _init(x, 0);
+        var defaultValue = 0;
+
+        if (typeof x == 'object') {
+            return window[x.function].apply(null, [[defaultValue, x.number]]);
+        } else {
+            return defaultValue;
+        }
     }
     function one(x)  {
-        return _init(x, 1);
+        var defaultValue = 1;
+
+        if (typeof x == 'object') {
+            return window[x.function].apply(null, [[defaultValue, x.number]]);
+        } else {
+            return defaultValue;
+        }
     }
     function two(x)  {
-        return _init(x, 2);
+        var defaultValue = 2;
+
+        if (typeof x == 'object') {
+            return window[x.function].apply(null, [[defaultValue, x.number]]);
+        } else {
+            return defaultValue;
+        }
     }
     function three(x)  {
-        return _init(x, 3);
+        var defaultValue = 3;
+
+        if (typeof x == 'object') {
+            return window[x.function].apply(null, [[defaultValue, x.number]]);
+        } else {
+            return defaultValue;
+        }
     }
     function four(x)  {
-        return _init(x, 4);
+        var defaultValue = 4;
+
+        if (typeof x == 'object') {
+            return window[x.function].apply(null, [[defaultValue, x.number]]);
+        } else {
+            return defaultValue;
+        }
     }
     function five(x) {
-        return _init(x, 5);
+        var defaultValue = 5;
+
+        if (typeof x == 'object') {
+            return window[x.function].apply(null, [[defaultValue, x.number]]);
+        } else {
+            return defaultValue;
+        }
     }
     function six(x)  {
-        return _init(x, 6);
+        var defaultValue = 6;
+
+        if (typeof x == 'object') {
+            return window[x.function].apply(null, [[defaultValue, x.number]]);
+        } else {
+            return defaultValue;
+        }
     }
     function seven(x)  {
-        return _init(x, 7);
+        var defaultValue = 7;
+
+        if (typeof x == 'object') {
+            return window[x.function].apply(null, [[defaultValue, x.number]]);
+        } else {
+            return defaultValue;
+        }
     }
     function eight(x)  {
-        return _init(x, 8);
+        var defaultValue = 8;
+
+        if (typeof x == 'object') {
+            return window[x.function].apply(null, [[defaultValue, x.number]]);
+        } else {
+            return defaultValue;
+        }
     }
     function nine(x)  {
-        return _init(x, 9);
+        var defaultValue = 9;
+
+        if (typeof x == 'object') {
+            return window[x.function].apply(null, [[defaultValue, x.number]]);
+        } else {
+            return defaultValue;
+        }
     }
 
     //operations
     function plus(x) {
-        return '+'+x;
+        var result = {};
+        if (typeof x == 'object') {
+            result = x[0] + x[1];
+        } else {
+            result.function = arguments.callee.name;
+            result.number = x;
+        }
+
+        return result;
     }
     function minus(x) {
-        return '-'+x;
+        var result = {};
+        if (typeof x == 'object') {
+            result = x[0] - x[1];
+        } else {
+            result.function = arguments.callee.name;
+            result.number = x;
+        }
+
+        return result;
     }
     function times(x) {
-        return '*'+x;
+        var result = {};
+        if (typeof x == 'object') {
+            result = x[0] * x[1];
+        } else {
+            result.function = arguments.callee.name;
+            result.number = x;
+        }
+
+        return result;
     }
     function dividedBy(x) {
-        return '/'+x;
-    }
+        var result = {};
+        if (typeof x == 'object') {
+            result = x[0] / x[1];
+        } else {
+            result.function = arguments.callee.name;
+            result.number = x;
+        }
 
-    /**
-     * Method "init" to prevent duplication of code
-     *
-     * @param x
-     * @param defaultVal
-     * @returns {*}
-     * @private
-     */
-    function _init(x, defaultVal) {
-        x = _executeMath(defaultVal + x) || defaultVal;
-
-        return x;
-    }
-
-    /**
-     * Execute, without using "eval"
-     * @param fn
-     * @returns {*}
-     * @private
-     */
-    function _executeMath(fn) {
-        return new Function('return ' + fn)();
+        return result;
     }
 
 </script>
